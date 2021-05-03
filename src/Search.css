@@ -1,0 +1,22 @@
+.input-group {
+    border-radius: 20px;
+    padding-bottom: 15px;
+  }
+  
+  #search-city {
+    background-color: #fff1eb;
+    border-color: #0d8eca;
+  }
+  
+  #submit-city,
+  #current-location-button {
+    border-color: #0d8eca;
+    color: #0d8eca;
+  }
+  
+  #submit-city:hover,
+  #current-location-button:hover {
+    background-color: #fff1eb;
+    transition: all 200ms ease-in-out;
+  }
+  

@@ -1,0 +1,50 @@
+ul {
+    list-style: none;
+  }
+  
+  #weather-description {
+    margin-top: 70px;
+  }
+  
+  .second-row {
+    margin-top: -25px;
+  }
+  
+  #forecast-days {
+    font-size: 12px;
+    padding-left: 30px;
+  }
+  
+  .days {
+    font-weight: bold;
+  }
+  
+  #daily-forecast {
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 3px;
+    margin-top: 5px;
+  }
+  
+  .forecast-days-temperature {
+    margin-left: 10px;
+  }
+  
+  #current-weather-icon {
+    margin-top: 40px;
+  }
+  
+  .humidity,
+  .wind,
+  .description {
+    font-size: 12px;
+  }
+  
+  .description {
+    font-weight: 600;
+  }
+  
+  .description::first-letter {
+    text-transform: capitalize;
+  }
+  
