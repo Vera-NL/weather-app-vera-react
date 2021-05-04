@@ -32,6 +32,7 @@ ul {
   
   #current-weather-icon {
     margin-top: 40px;
+    color:#0d8eca;
   }
   
   .humidity,
@@ -47,4 +48,8 @@ ul {
   .description::first-letter {
     text-transform: capitalize;
   }
+
+  .fa-sun {
+    color: #0d8eca;
+}
   

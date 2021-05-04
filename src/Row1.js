@@ -1,5 +1,5 @@
 import React from "react";
-import axios from "./axios";
+
 
 import "./Row1.css";
 
@@ -17,8 +17,7 @@ export default function Row1() {
         <h1 id="city">{cityDateTempData.city}</h1>
         <ul>
           <li id="date-update">
-            Last updated on
-            <span id="today" class="today">
+            Last updated on <span id="today" class="today">
               {cityDateTempData.date}
             </span>
           </li>

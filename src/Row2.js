@@ -1,5 +1,5 @@
 import React from "react";
-import axios from "./axios";
+import ForecastDays from "./ForecastDays";
 
 import "./Row2.css";
 
@@ -15,16 +15,17 @@ export default function Row2() {
       <div
         className="col-xs-4 col-sm-4 col-md-4 col-lg-4"
         id="forecast-days"
-      ></div>
+      ><ForecastDays />
+      </div>
 
       <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-        <div id="current-weather-icon"></div>
+        <div id="current-weather-icon"><i class="fas fa-sun fa-7x"></i></div>
       </div>
 
       <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3">
         <ul id="weather-description">
           <li className="humidity">
-            <strong>Humidity:</strong>
+            <strong>Humidity: </strong>
             <span id="humidity">{forecastdayIconDescriptionData.humidity}</span>
             <span id="percentage"> %</span>
           </li>
