@@ -1,11 +1,23 @@
-import React from "react";
-
+import React, {useState} from "react";
+import axios from "axios";
 
 import "./Search.css";
 
 export default function Search() {
+  let [city, setCity] = useState("");
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    let apiKey = "ad1c3c6d8734a6f724e8c027e1f76c71";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl);}
+
+  function updateCity(event) {
+    setCity(event.target.value);
+  }
+
   return (
-    <form className="search" id="search-form">
+    <form className="search" id="search-form" onSubmit={handleSubmit}>
       <div className="input-group">
         <input
           className="form-control"
@@ -15,6 +27,7 @@ export default function Search() {
           autocomplete="off"
           autofocus="off"
           id="search-city"
+          onChange={updateCity} 
         />
         <button
           className="btn btn-outline-secondary"

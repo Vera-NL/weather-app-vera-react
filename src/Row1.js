@@ -1,6 +1,5 @@
 import React from "react";
 
-
 import "./Row1.css";
 
 export default function Row1() {
