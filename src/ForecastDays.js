@@ -1,5 +1,4 @@
 import React from "react";
-import "./ForecastDays.css";
 
 export default function ForecastDays() {
     return (<div>

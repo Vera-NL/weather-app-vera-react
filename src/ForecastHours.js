@@ -1,5 +1,5 @@
 import React from "react";
-import "./ForecastHours.css";
+
 
 export default function ForecastHours() {
     return (<div className="row">
