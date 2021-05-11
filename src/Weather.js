@@ -6,40 +6,30 @@ import ForecastHours from "./ForecastHours"
 import "./Weather.css";
 
 export default function Weather() {
-  let cityDateTempData = {
-    date: "Friday 13:57",
-    monthYear: "16 April 2021",
-  };
-
+  let [weatherData, setWeatherData] =  useState({ready: false});
   let [city, setCity] = useState("");
-  let [temperature, setTemperature] = useState(null);
-  let [description, setDescription] = useState(null);
-  let [humidity, setHumidity] = useState(null);
-  let [wind, setWind] = useState(null);
 
   function handleSubmit(event) {
     event.preventDefault();
-    const apiKey = "ad1c3c6d8734a6f724e8c027e1f76c71";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-    axios.get(apiUrl).then(showWeather);}
-
+}
 
   function showWeather(response) {
-    setTemperature(Math.round(response.data.main.temp));
-
-    setDescription(response.data.weather[0].description);
-
-    setHumidity(response.data.main.humidity);
-
-    setWind(Math.round(response.data.wind.speed));
+    setWeatherData({
+      date: "Friday 13:57",
+      description: response.data.weather[0].description,
+      humidity: response.data.main.humidity,
+      monthYear: "16 April 2021",
+      ready: true,
+      temperature: response.data.main.temp,
+      wind: response.data.wind.speed     
+    })
   }
 
   function updateCity(event) {
     setCity(event.target.value);
   }
 
-
-
+if (weatherData.ready) {
   return (
     <div className= "Weather">
 
@@ -81,17 +71,17 @@ export default function Weather() {
           <ul>
             <li id="date-update">
               Last updated on <span id="today" class="today">
-                {cityDateTempData.date}
+                {weatherData.date}
               </span>
             </li>
-            <li id="month-year">{cityDateTempData.monthYear}</li>
+            <li id="month-year">{weatherData.monthYear}</li>
           </ul>
         </div>
 
         <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
           <div className="clearfix weather-temperature">
             <div className="float-left">
-              <span id="temperature">{temperature}</span>
+              <span id="temperature">{Math.round(weatherData.temperature)}</span>
               <span className="units" id="units">
                 <a
                   className="btn btn-outline-secondary active"
@@ -130,16 +120,16 @@ export default function Weather() {
           <ul id="weather-description">
             <li className="humidity">
               <strong>Humidity: </strong>
-              <span id="humidity">{humidity}</span>
+              <span id="humidity">{weatherData.humidity}</span>
               <span id="percentage"> %</span>
             </li>
             <li className="wind">
               <strong>Wind: </strong>
-              <span id="wind">{wind}</span>
+              <span id="wind">{Math.round(weatherData.wind)}</span>
               <span id="km/h"> km/h</span>
             </li>
             <li className="description" id="description">
-              {description}
+              {weatherData.description}
             </li>
           </ul>
         </div>
@@ -152,4 +142,11 @@ export default function Weather() {
     </form>
     </div>
 );
+} else {
+  const apiKey = "ad1c3c6d8734a6f724e8c027e1f76c71";
+  let city = "New York";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showWeather);
+  return "Loading...";
+}
   } 
