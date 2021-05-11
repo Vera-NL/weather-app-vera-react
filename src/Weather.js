@@ -3,6 +3,8 @@ import axios from "axios";
 import ForecastDays from "./ForecastDays";
 import ForecastHours from "./ForecastHours";
 import Loader from "react-loader-spinner";
+import DayTime from "./DayTime";
+import DateYear from "./DateYear";
 
 import "./Weather.css";
 
@@ -16,10 +18,10 @@ export default function Weather({defaultCity}) {
 
   function showWeather(response) {
     setWeatherData({
-      date: "Friday 13:57",
+      dayTime: new Date(response.data.dt * 1000),
       description: response.data.weather[0].description,
       humidity: response.data.main.humidity,
-      monthYear: "16 April 2021",
+      monthYear: new Date(response.data.dt * 1000),
       ready: true,
       temperature: response.data.main.temp,
       wind: response.data.wind.speed     
@@ -71,11 +73,9 @@ if (weatherData.ready) {
           <h1 id="city">{defaultCity}</h1>
           <ul>
             <li id="date-update">
-              Last updated on <span id="today" class="today">
-                {weatherData.date}
-              </span>
+              Last updated on <DayTime input={weatherData.dayTime} />
             </li>
-            <li id="month-year">{weatherData.monthYear}</li>
+            <li><DateYear input={weatherData.monthYear} /></li>
           </ul>
         </div>
 
@@ -147,6 +147,6 @@ if (weatherData.ready) {
   const apiKey = "ad1c3c6d8734a6f724e8c027e1f76c71";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${defaultCity}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showWeather);
-  return <Loader type="Oval"/>;
+  return <Loader type="Oval" color="#0d8eca" width={50} height={50}/>;
 }
   } 
