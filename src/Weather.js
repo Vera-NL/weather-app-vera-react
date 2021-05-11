@@ -1,11 +1,12 @@
 import React, {useState} from "react";
 import axios from "axios";
 import ForecastDays from "./ForecastDays";
-import ForecastHours from "./ForecastHours"
+import ForecastHours from "./ForecastHours";
+import Loader from "react-loader-spinner";
 
 import "./Weather.css";
 
-export default function Weather() {
+export default function Weather({defaultCity}) {
   let [weatherData, setWeatherData] =  useState({ready: false});
   let [city, setCity] = useState("");
 
@@ -67,7 +68,7 @@ if (weatherData.ready) {
 
       <div className="row first-row">
         <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-          <h1 id="city">{city}</h1>
+          <h1 id="city">{defaultCity}</h1>
           <ul>
             <li id="date-update">
               Last updated on <span id="today" class="today">
@@ -144,9 +145,8 @@ if (weatherData.ready) {
 );
 } else {
   const apiKey = "ad1c3c6d8734a6f724e8c027e1f76c71";
-  let city = "New York";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${defaultCity}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showWeather);
-  return "Loading...";
+  return <Loader type="Oval"/>;
 }
   } 

@@ -8,7 +8,7 @@ export default function App() {
   return (
     <div className="container-fluid">
       <div className="app shadow-lg" id="app">
-        <Weather city="Amsterdam"/>
+        <Weather defaultCity="Amsterdam"/>
           <small>
             <a
               href="https://github.com/Vera-NL/weather-app-vera-react"
