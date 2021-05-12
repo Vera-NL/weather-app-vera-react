@@ -1,23 +1,28 @@
 import React, {useState} from "react";
 import axios from "axios";
-import ForecastDays from "./ForecastDays";
-import ForecastHours from "./ForecastHours";
 import Loader from "react-loader-spinner";
-import DayTime from "./DayTime";
-import DateYear from "./DateYear";
-
+import WeatherInfo from "./WeatherInfo";
 import "./Weather.css";
 
 export default function Weather({defaultCity}) {
   let [weatherData, setWeatherData] =  useState({ready: false});
-  let [city, setCity] = useState("");
+  let [city, setCity] = useState(defaultCity);
+
+
+  function search () {
+    const apiKey = "ad1c3c6d8734a6f724e8c027e1f76c71";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(showWeather);
+  }
 
   function handleSubmit(event) {
     event.preventDefault();
+    search();
 }
 
   function showWeather(response) {
     setWeatherData({
+      city: response.data.name,
       dayTime: new Date(response.data.dt * 1000),
       description: response.data.weather[0].description,
       humidity: response.data.main.humidity,
@@ -68,85 +73,13 @@ if (weatherData.ready) {
         </button>
       </div>
 
-      <div className="row first-row">
-        <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-          <h1 id="city">{defaultCity}</h1>
-          <ul>
-            <li id="date-update">
-              Last updated on <DayTime input={weatherData.dayTime} />
-            </li>
-            <li><DateYear input={weatherData.monthYear} /></li>
-          </ul>
-        </div>
-
-        <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-          <div className="clearfix weather-temperature">
-            <div className="float-left">
-              <span id="temperature">{Math.round(weatherData.temperature)}</span>
-              <span className="units" id="units">
-                <a
-                  className="btn btn-outline-secondary active"
-                  href="/"
-                  id="celsius-link"
-                  role="button"
-                >
-                  °C
-                </a>
-                <a
-                  className="btn btn-outline-secondary"
-                  href="/"
-                  id="fahrenheit-link"
-                  role="button"
-                >
-                  °F
-                </a>
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="row second-row">
-        <div
-          className="col-xs-4 col-sm-4 col-md-4 col-lg-4"
-          id="forecast-days"
-        ><ForecastDays />
-        </div>
-
-        <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-          <div id="current-weather-icon"><i class="fas fa-sun fa-7x"></i></div>
-        </div>
-
-        <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-          <ul id="weather-description">
-            <li className="humidity">
-              <strong>Humidity: </strong>
-              <span id="humidity">{weatherData.humidity}</span>
-              <span id="percentage"> %</span>
-            </li>
-            <li className="wind">
-              <strong>Wind: </strong>
-              <span id="wind">{Math.round(weatherData.wind)}</span>
-              <span id="km/h"> km/h</span>
-            </li>
-            <li className="description" id="description">
-              {weatherData.description}
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <div className="row third-row" id="forecast-hours">
-      <ForecastHours />
-      </div>
+<WeatherInfo data={weatherData} />
 
     </form>
     </div>
 );
 } else {
-  const apiKey = "ad1c3c6d8734a6f724e8c027e1f76c71";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${defaultCity}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(showWeather);
-  return <Loader type="Oval" color="#0d8eca" width={50} height={50}/>;
+search();
+  return <Loader type="Oval" color="#0d8eca" width={80} height={50} />;
 }
   } 

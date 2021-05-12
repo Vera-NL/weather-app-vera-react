@@ -29,11 +29,7 @@ ul {
     transition: all 200ms ease-in-out;
   }
     
-  #date-update,
-  #month-year {
-    font-size: 12px;
-    margin-left: -30px;
-  }
+
   
   .weather-temperature {
     position: relative;

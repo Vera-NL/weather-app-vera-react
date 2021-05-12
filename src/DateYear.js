@@ -6,5 +6,5 @@ export default function DateYear ({input}) {
     let year = input.getFullYear();
     let date = input.getDate();
 return (
-<div>{date} {month} {year}</div>);
+<div id="month-year">{date} {month} {year}</div>);
 }
