@@ -3,14 +3,14 @@ import DayTime from "./DayTime";
 import DateYear from "./DateYear";
 import ForecastDays from "./ForecastDays";
 import ForecastHours from "./ForecastHours";
-import CurrentWeatherIcon from "./CurrentWeatherIcon"
-import CurrentTemperature from "./CurrentTemperature"
+import WeatherIcon from "./WeatherIcon";
+import CurrentTemperature from "./CurrentTemperature";
 
 export default function WeatherInfo ({data}) {
     return (<div className="WeatherInfo">
       <div className="row first-row">
         <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-          <h1 id="city">{data.city}</h1>
+          <h1>{data.city}</h1>
           <ul id="date-update">
             <li>
               <DayTime input={data.dayTime} />
@@ -24,7 +24,7 @@ export default function WeatherInfo ({data}) {
         <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
           <div className="clearfix weather-temperature">
             <div className="float-left">
-              <CurrentTemperature celcius={Math.round(data.temperature)}/>
+              <CurrentTemperature celcius={data.temperature}/>
             </div>
           </div>
         </div>
@@ -38,29 +38,29 @@ export default function WeatherInfo ({data}) {
         </div>
 
         <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-          <div id="current-weather-icon"><CurrentWeatherIcon icon={data.icon} /></div>
+          <div className="WeatherIcon"><WeatherIcon icon={data.icon} size={170} animate={true} /></div>
         </div>
 
         <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-          <ul id="weather-description">
-            <li className="humidity">
+          <ul className="WeatherDescription">
+            <li className="Humidity">
               <strong>Humidity: </strong>
-              <span id="humidity">{data.humidity}</span>
-              <span id="percentage"> %</span>
+              <span>{data.humidity}</span>
+              <span> %</span>
             </li>
-            <li className="wind">
+            <li className="Wind">
               <strong>Wind: </strong>
-              <span id="wind">{Math.round(data.wind)}</span>
-              <span id="km/h"> km/h</span>
+              <span>{Math.round(data.wind)}</span>
+              <span> km/h</span>
             </li>
-            <li className="description" id="description">
+            <li className="Description">
               {data.description}
             </li>
           </ul>
         </div>
       </div>
 
-      <div className="row third-row" id="forecast-hours">
+      <div className="row third-row">
       <ForecastHours />
       </div>
       </div>

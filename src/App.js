@@ -9,7 +9,7 @@ export default function App() {
     <div className="container-fluid">
       <div className="app shadow-lg" id="app">
         <Weather defaultCity="Amsterdam"/>
-          <small>
+          <div className="Footer">
             <a
               href="https://github.com/Vera-NL/weather-app-vera-react"
               target="blank"
@@ -19,7 +19,7 @@ export default function App() {
             </a> by <a href="https://www.linkedin.com/in/veraclaassens/"
               target="blank"
               id="linkedin">Vera Claassens</a>
-          </small>
+          </div>
       </div>
     </div>
   );

@@ -5,38 +5,64 @@ export default function CurrentTemperature ({celcius}) {
 
     function showFahrenheit (event) {
         event.preventDefault();
-        let temp = (celcius * 9) / 5 + 32;
-        setTemperature(Math.round(temp));
+        setTemperature("fahrenheit");
     }
 
     function showCelcius (event) {
         event.preventDefault(); 
-        setTemperature(celcius);
+        setTemperature("celcius");
     }
 
+    if (temperature === "celcius") {
     return ( 
-    <div className="CurrentTemperature">
-        <span id="temperature">{temperature}</span>
-        <span className="units" id="units">
-        <a
-            className="btn btn-outline-secondary"
-            href="/"
-            id="celsius-link"
-            role="button"
-            onClick={showCelcius}
-        >
-            °C
-        </a>
-        <a
-            className="btn btn-outline-secondary"
-            href="/"
-            id="fahrenheit-link"
-            role="button"
-            onClick={showFahrenheit}
-        >
-            °F
-        </a>
-        </span>
-    </div>
+        <div className="CurrentTemperature">
+            <span className="Temperature">{Math.round(celcius)}</span>
+            <span className="Units">
+            <a
+                className="btn btn-outline-secondary"
+                href="/"
+                id="celcius-link"
+                role="button"
+            >
+                °C
+            </a>
+            <a
+                className="btn btn-outline-secondary"
+                href="/"
+                id="fahrenheit-link"
+                role="button"
+                onClick={showFahrenheit}
+            >
+                °F
+            </a>
+            </span>
+        </div>);
+        } else {
+            let temp = (celcius * 9) / 5 + 32;
+    return (
+        <div className="CurrentTemperature">
+            <span className="Temperature">{Math.round(temp)}</span>
+            <span className="Units">
+            <a
+                className="btn btn-outline-secondary"
+                href="/"
+                id="celcius-link"
+                role="button"
+                onClick={showCelcius}
+            >
+                °C
+            </a>
+            <a
+                className="btn btn-outline-secondary"
+                href="/"
+                id="fahrenheit-link"
+                role="button"
+            >
+                °F
+            </a>
+
+            </span>
+        </div>
     );
+        }
 }

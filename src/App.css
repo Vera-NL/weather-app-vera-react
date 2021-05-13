@@ -6,11 +6,8 @@
   padding: 20px;
 }
 
-.max-temp-hours,
-.max-temp-days,
-.degrees {
-  color: #0d8eca;
-  font-weight: bold;
+.Footer {
+  margin-top: 15px;
 }
 
 #open-source-code,

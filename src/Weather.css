@@ -38,7 +38,7 @@ ul {
     top: -20px;
   }
   
-  .weather-temperature .units {
+  .weather-temperature .Units {
     margin-right: 20px;
     position: relative;
     top: -34px;
@@ -47,99 +47,98 @@ ul {
   .weather-temperature .active {
     background-color: #fff1eb;
   }
-  
-  #temperature {
+
+  .Temperature {
     color: #0d8eca;
     font-size: 80px;
     font-weight: 600;
     margin-right: 10px;
   }
 
-  #celsius-link {
+  #celcius-link {
     margin-right: 5px;
   }
   
-  #celsius-link,
+  #celcius-link,
   #fahrenheit-link {
     border-color: #0d8eca;
     color: #0d8eca;
     top: -36px;
   }
   
-  #celsius-link:hover,
+  #celcius-link:hover,
   #fahrenheit-link:hover {
     background-color: #fff1eb;
     transition: all 200ms ease-in-out;
   }
   
-  #weather-description {
+  .WeatherDescription {
     margin-top: 70px;
   }
   
-  #forecast-days {
+  .ForecastDays {
     font-size: 14px;
     padding-left: 30px;
   }
   
-  .days {
-    font-weight: bold;
-  }
-  
-  #daily-forecast {
-    font-size: 12px;
+  .DailyForecast {
+    font-size: 14px;
     font-weight: bold;
     margin-bottom: 3px;
     margin-top: 5px;
   }
   
-  .forecast-days-temperature {
+  .ForecastDaysTemperature {
     margin-left: 10px;
   }
   
-  #current-weather-icon {
+  .WeatherIcon {
     margin-top: 20px;
     color:#0d8eca;
   }
   
-  .humidity,
-  .wind,
-  .description {
-    font-size: 12px;
+  .Humidity,
+  .Wind,
+  .Description {
+    font-size: 14px;
   }
   
-  .description {
+  .Description {
     font-weight: 600;
   }
   
-  .description::first-letter {
+  .Description::first-letter {
     text-transform: capitalize;
   }
   
-  #forecast-hours {
-    margin-left: 150px;
-    margin-top: 15px;
+  .ForecastHours {
+    margin-top: 35px;
     text-align: center;
   }
 
-#forecast-hours h3 {
-  font-size: 12px;
+.HourlyForecast {
+  font-size: 16px;
   font-weight: bold;
   height: 15px;
   line-height: 15px;
+  margin-bottom: 15px;
   padding-top: 7px;
+  padding-left: 12px;
 }
 
-#forecast-hours-icon {
-  display: block;
-  margin: 0 auto;
-  margin-top: 1px;
-}
-
-.forecast-hours-temperature {
-  font-size: 12px;
+.ForecastHoursTemperature {
+  font-size: 16px;
   font-weight: normal;
   height: auto;
   line-height: 15px;
-  margin-top: 1px;
+  margin-top: 5px;
+  padding-left: 15px;
   white-space: nowrap;
+}
+
+.MaxTempHours,
+.MaxTempDays,
+.Degrees {
+  color: #0d8eca;
+  font-weight: bold;
 }

@@ -1,17 +1,12 @@
 import React from "react";
+import WeatherIcon from "./WeatherIcon"
 
 export default function ForecastDays() {
-    return (<div>
-    <div><strong>Wed</strong> <i class="fas fa-sun fa-1x"></i> <br />
-            9° 4°</div>
-            <div><strong>Thu</strong> <i class="fas fa-sun fa-1x"></i><br />
-            9° 4° </div>
-            <div><strong>Fri</strong> <i class="fas fa-sun fa-1x"></i><br />
-            9° 4° </div>
-            <div><strong>Sat</strong> <i class="fas fa-sun fa-1x"></i><br />
-            9° 4° </div>
-            <div><strong>Sun</strong> <i class="fas fa-sun fa-1x"></i><br />
-            9° 4° </div>
+    return (<div classname="ForecastDays">
+                <div className="DailyForecast">Wed</div> <WeatherIcon icon="10d" size={20} animate={false} /> <br />
+                <div className="ForecastDaysTemperature">
+                    <span className="MaxTempDays">15°</span> <span className="MinTempDays">7°</span>
+                </div>
             </div>
     );
 }
