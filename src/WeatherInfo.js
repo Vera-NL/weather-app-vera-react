@@ -4,10 +4,11 @@ import DateYear from "./DateYear";
 import ForecastDays from "./ForecastDays";
 import ForecastHours from "./ForecastHours";
 import CurrentWeatherIcon from "./CurrentWeatherIcon"
+import CurrentTemperature from "./CurrentTemperature"
 
 export default function WeatherInfo ({data}) {
     return (<div className="WeatherInfo">
-<div className="row first-row">
+      <div className="row first-row">
         <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
           <h1 id="city">{data.city}</h1>
           <ul>
@@ -23,25 +24,7 @@ export default function WeatherInfo ({data}) {
         <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
           <div className="clearfix weather-temperature">
             <div className="float-left">
-              <span id="temperature">{Math.round(data.temperature)}</span>
-              <span className="units" id="units">
-                <a
-                  className="btn btn-outline-secondary active"
-                  href="/"
-                  id="celsius-link"
-                  role="button"
-                >
-                  °C
-                </a>
-                <a
-                  className="btn btn-outline-secondary"
-                  href="/"
-                  id="fahrenheit-link"
-                  role="button"
-                >
-                  °F
-                </a>
-              </span>
+              <CurrentTemperature celcius={Math.round(data.temperature)}/>
             </div>
           </div>
         </div>
@@ -55,7 +38,7 @@ export default function WeatherInfo ({data}) {
         </div>
 
         <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-          <div id="current-weather-icon"><CurrentWeatherIcon id={data.icon} /></div>
+          <div id="current-weather-icon"><CurrentWeatherIcon icon={data.icon} /></div>
         </div>
 
         <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3">

@@ -24,7 +24,7 @@ export default function Weather({defaultCity}) {
       city: response.data.name,
       dayTime: new Date(response.data.dt * 1000),
       description: response.data.weather[0].description,
-      icon: response.data.weather[0].id,
+      icon: response.data.weather[0].icon,
       humidity: response.data.main.humidity,
       monthYear: new Date(response.data.dt * 1000),
       ready: true,

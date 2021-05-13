@@ -1,17 +1,20 @@
 import React from "react";
 import WeatherIcons from "react-weathericons";
 
-export default function CurrentWeatherIcon ({id}) {
+export default function CurrentWeatherIcon ({icon}) {
     let codeMapping = {
-      "800": "sun",
-      ">= 200 && < 300": "bolt",
-      ">= 300 && < 500": "cloud-rain",
-      ">= 500 && < 600": "cloud-showers-heavy",
-      ">= 600 && < 700": "snowflake",
-      ">= 700 && < 800": "smog",
-      ">= 801 && <= 804": "cloud-sun"
+        "01d": "sun",
+        "02d": "cloud-sun",
+        "03d": "cloud",
+        "04d": "cloud",
+        "04n": "cloud-sun",
+        "09d": "cloud-rain",
+        "10d": "cloud-rain",
+        "11d": "bolt",
+        "13d": "snowflake",
+        "50d": "smog",
     };
     return (<WeatherIcons
-    name={codeMapping[id]} size="7x"/>
+    name={codeMapping[icon]} size="7x"/>
     );
 }
