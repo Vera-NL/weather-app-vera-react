@@ -19,7 +19,7 @@ export default function CurrentTemperature ({celcius}) {
         <span id="temperature">{temperature}</span>
         <span className="units" id="units">
         <a
-            className="btn btn-outline-secondary active"
+            className="btn btn-outline-secondary"
             href="/"
             id="celsius-link"
             role="button"
@@ -37,5 +37,6 @@ export default function CurrentTemperature ({celcius}) {
             °F
         </a>
         </span>
-    </div>);
+    </div>
+    );
 }

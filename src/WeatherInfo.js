@@ -11,8 +11,8 @@ export default function WeatherInfo ({data}) {
       <div className="row first-row">
         <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
           <h1 id="city">{data.city}</h1>
-          <ul>
-            <li id="date-update">
+          <ul id="date-update">
+            <li>
               <DayTime input={data.dayTime} />
             </li>
             <li>

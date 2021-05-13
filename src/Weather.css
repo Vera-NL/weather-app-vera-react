@@ -28,8 +28,10 @@ ul {
     background-color: #fff1eb;
     transition: all 200ms ease-in-out;
   }
-    
 
+  #date-update {
+    margin-left: -38px;
+  }
   
   .weather-temperature {
     position: relative;
@@ -50,6 +52,11 @@ ul {
     color: #0d8eca;
     font-size: 80px;
     font-weight: 600;
+    margin-right: 10px;
+  }
+
+  #celsius-link {
+    margin-right: 5px;
   }
   
   #celsius-link,
@@ -69,12 +76,8 @@ ul {
     margin-top: 70px;
   }
   
-  .second-row {
-    margin-top: -25px;
-  }
-  
   #forecast-days {
-    font-size: 12px;
+    font-size: 14px;
     padding-left: 30px;
   }
   
@@ -94,7 +97,7 @@ ul {
   }
   
   #current-weather-icon {
-    margin-top: 40px;
+    margin-top: 20px;
     color:#0d8eca;
   }
   
@@ -111,17 +114,12 @@ ul {
   .description::first-letter {
     text-transform: capitalize;
   }
-
-  .fa-sun {
-    color: #0d8eca;
-}
   
-#forecast-hours {
-  margin-left: 75px;
-  margin-right: 75px;
-  margin-top: 15px;
-  text-align: center;
-}
+  #forecast-hours {
+    margin-left: 150px;
+    margin-top: 15px;
+    text-align: center;
+  }
 
 #forecast-hours h3 {
   font-size: 12px;
