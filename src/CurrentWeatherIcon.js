@@ -1,20 +1,28 @@
 import React from "react";
-import WeatherIcons from "react-weathericons";
+import ReactAnimatedWeather from 'react-animated-weather';
 
 export default function CurrentWeatherIcon ({icon}) {
     let codeMapping = {
-        "01d": "sun",
-        "02d": "cloud-sun",
-        "03d": "cloud",
-        "04d": "cloud",
-        "04n": "cloud-sun",
-        "09d": "cloud-rain",
-        "10d": "cloud-rain",
-        "11d": "bolt",
-        "13d": "snowflake",
-        "50d": "smog",
+      "01d": "CLEAR_DAY",
+      "01n": "CLEAR_NIGHT",
+      "02d": "PARTLY_CLOUDY_DAY",
+      "02n": "PARTLY_CLOUDY_NIGHT",
+      "03d": "PARTLY_CLOUDY_DAY",
+      "03n": "PARTLY_CLOUDY_NIGHT",
+      "04d": "CLOUDY",
+      "04n": "CLOUDY",
+      "09d": "RAIN",
+      "09n": "RAIN",
+      "10d": "RAIN",
+      "10n": "RAIN",
+      "11d": "RAIN",
+      "11n": "RAIN",
+      "13d": "SNOW",
+      "13n": "SNOW",
+      "50d": "FOG",
+      "50n": "FOG",
     };
-    return (<WeatherIcons
-    name={codeMapping[icon]} size="7x"/>
+    return (<ReactAnimatedWeather
+    icon={codeMapping[icon]} size="170" color="#0d8eca" animate={true} />
     );
 }

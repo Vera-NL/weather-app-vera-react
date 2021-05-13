@@ -1,19 +1,29 @@
-import React from "react";
+import React, {useState} from "react";
 
 export default function CurrentTemperature ({celcius}) {
-    function FahrenheitConvert(event) {
+    let [temperature, setTemperature] = useState(celcius);
+
+    function showFahrenheit (event) {
         event.preventDefault();
+        let temp = (celcius * 9) / 5 + 32;
+        setTemperature(Math.round(temp));
+    }
+
+    function showCelcius (event) {
+        event.preventDefault(); 
+        setTemperature(celcius);
     }
 
     return ( 
     <div className="CurrentTemperature">
-        <span id="temperature">{celcius}</span>
+        <span id="temperature">{temperature}</span>
         <span className="units" id="units">
         <a
             className="btn btn-outline-secondary active"
             href="/"
             id="celsius-link"
             role="button"
+            onClick={showCelcius}
         >
             °C
         </a>
@@ -22,6 +32,7 @@ export default function CurrentTemperature ({celcius}) {
             href="/"
             id="fahrenheit-link"
             role="button"
+            onClick={showFahrenheit}
         >
             °F
         </a>
