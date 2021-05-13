@@ -8,7 +8,6 @@ export default function Weather({defaultCity}) {
   let [weatherData, setWeatherData] =  useState({ready: false});
   let [city, setCity] = useState(defaultCity);
 
-
   function search () {
     const apiKey = "ad1c3c6d8734a6f724e8c027e1f76c71";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
@@ -25,11 +24,12 @@ export default function Weather({defaultCity}) {
       city: response.data.name,
       dayTime: new Date(response.data.dt * 1000),
       description: response.data.weather[0].description,
+      icon: response.data.weather[0].id,
       humidity: response.data.main.humidity,
       monthYear: new Date(response.data.dt * 1000),
       ready: true,
       temperature: response.data.main.temp,
-      wind: response.data.wind.speed     
+      wind: response.data.wind.speed    
     })
   }
 

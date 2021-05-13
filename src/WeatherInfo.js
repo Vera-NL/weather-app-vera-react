@@ -3,6 +3,7 @@ import DayTime from "./DayTime";
 import DateYear from "./DateYear";
 import ForecastDays from "./ForecastDays";
 import ForecastHours from "./ForecastHours";
+import CurrentWeatherIcon from "./CurrentWeatherIcon"
 
 export default function WeatherInfo ({data}) {
     return (<div className="WeatherInfo">
@@ -54,7 +55,7 @@ export default function WeatherInfo ({data}) {
         </div>
 
         <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-          <div id="current-weather-icon"><i class="fas fa-sun fa-7x"></i></div>
+          <div id="current-weather-icon"><CurrentWeatherIcon id={data.icon} /></div>
         </div>
 
         <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3">
