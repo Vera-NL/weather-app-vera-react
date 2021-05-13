@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 
 export default function CurrentTemperature ({celcius}) {
-    let [temperature, setTemperature] = useState(celcius);
+    let [temperature, setTemperature] = useState("celcius");
 
     function showFahrenheit (event) {
         event.preventDefault();
