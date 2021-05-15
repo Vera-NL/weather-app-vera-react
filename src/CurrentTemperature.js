@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-export default function CurrentTemperature ({celcius}) {
+export default function CurrentTemperature (props) {
     let [temperature, setTemperature] = useState("celcius");
 
     function showFahrenheit (event) {
@@ -16,7 +16,7 @@ export default function CurrentTemperature ({celcius}) {
     if (temperature === "celcius") {
     return ( 
         <div className="CurrentTemperature">
-            <span className="Temperature">{Math.round(celcius)}</span>
+            <span className="Temperature">{Math.round(props.celcius)}</span>
             <span className="Units">
             <a
                 className="btn btn-outline-secondary active"
@@ -38,7 +38,7 @@ export default function CurrentTemperature ({celcius}) {
             </span>
         </div>);
         } else {
-            let temp = (celcius * 9) / 5 + 32;
+            let temp = (props.celcius * 9) / 5 + 32;
     return (
         <div className="CurrentTemperature">
             <span className="Temperature">{Math.round(temp)}</span>
