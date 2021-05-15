@@ -43,10 +43,6 @@ ul {
     position: relative;
     top: -34px;
   }
-  
-  .weather-temperature .active {
-    background-color: #fff1eb;
-  }
 
   .Temperature {
     color: #0d8eca;
@@ -71,6 +67,11 @@ ul {
     background-color: #fff1eb;
     transition: all 200ms ease-in-out;
   }
+
+  #celcius-link.active,
+  #fahrenheit-link.active {
+    background-color: #fff1eb;
+  }
   
   .WeatherDescription {
     margin-top: 70px;
@@ -84,8 +85,6 @@ ul {
   .DailyForecast {
     font-size: 14px;
     font-weight: bold;
-    margin-bottom: 3px;
-    margin-top: 5px;
   }
   
   .ForecastDaysTemperature {

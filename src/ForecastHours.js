@@ -3,7 +3,7 @@ import WeatherIcon from "./WeatherIcon"
 
 export default function ForecastHours() {
     return (
-            <div classname="ForecastHours">
+            <div className="ForecastHours">
                 <div className="row">
                     <div className="col-sm-2">
                         <div className="HourlyForecast">17.00</div>
