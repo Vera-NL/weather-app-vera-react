@@ -22,6 +22,7 @@ export default function Weather({defaultCity}) {
   function showWeather(response) {
     setWeatherData({
       city: response.data.name,
+      coord: response.data.coord,
       dayTime: new Date(response.data.dt * 1000),
       description: response.data.weather[0].description,
       icon: response.data.weather[0].icon,

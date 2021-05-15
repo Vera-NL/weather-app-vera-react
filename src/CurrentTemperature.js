@@ -19,7 +19,7 @@ export default function CurrentTemperature ({celcius}) {
             <span className="Temperature">{Math.round(celcius)}</span>
             <span className="Units">
             <a
-                className="btn btn-outline-secondary"
+                className="btn btn-outline-secondary active"
                 href="/"
                 id="celcius-link"
                 role="button"
@@ -53,7 +53,7 @@ export default function CurrentTemperature ({celcius}) {
                 °C
             </a>
             <a
-                className="btn btn-outline-secondary"
+                className="btn btn-outline-secondary active"
                 href="/"
                 id="fahrenheit-link"
                 role="button"

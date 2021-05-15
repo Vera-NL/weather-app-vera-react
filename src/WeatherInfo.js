@@ -34,7 +34,7 @@ export default function WeatherInfo ({data}) {
         <div
           className="col-xs-4 col-sm-4 col-md-4 col-lg-4"
           id="forecast-days"
-        ><ForecastDays />
+        ><ForecastDays coord={data.coord} />
         </div>
 
         <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
