@@ -61,7 +61,7 @@ export default function WeatherInfo (props) {
       </div>
 
       <div className="row third-row">
-      <ForecastHours city={props.data.name} />
+      <ForecastHours city={props.data.city} />
       </div>
       </div>
     );

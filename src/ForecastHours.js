@@ -22,7 +22,8 @@
                                     <HourlyForecast data={forecastHours} />
                                 </div>
                                 );
-                                }
+                                } else {
+                                    return null;}
                             })
                         }    
                     </div>

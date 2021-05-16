@@ -17,14 +17,16 @@ export default function HourlyForecast (props) {
         let date = new Date(props.data.dt * 1000);
         let hours = date.getHours();
         if (hours < 10) {hours = `0${hours}`};
+        let minutes = date.getMinutes();
+        if (minutes < 10) {minutes = `0${minutes}`};
 
-        return hours;
+        return `${hours}:${minutes}`;
       }
 
     return (
             <div>
                 <div className="HourlyForecast">{formatHours()}</div>
-                <WeatherIcon icon={props.data.weather[0].id} size={45} animate={false} />
+                <WeatherIcon icon={props.data.weather[0].icon} size={45} animate={false} />
                 <div className="ForecastHoursTemperature">
                     <span className="MaxTempHours">{maxTempHours()}°</span> <span className="MinTempHours">{minTempHours()}°</span>
                 </div>
