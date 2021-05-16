@@ -15,9 +15,18 @@ export default function ForecastDays(props) {
         setLoaded(true);
     }
 
+    function load() {
+        let longitude = props.coord.lon;
+        let latitude = props.coord.lat;
+        let apiKey = "ad1c3c6d8734a6f724e8c027e1f76c71";
+        let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=current,minutely,hourly,alerts&appid=${apiKey}&units=metric`;
+        
+        axios.get(apiUrl).then(showForecastDays);
+    }
+
     if (loaded) {
         return (
-            <div classname="ForecastDays">
+            <div className="ForecastDays">
                 {forecastDay.map(function (forecastDays, index) {
                     if (index < 5) {
                     return (
@@ -33,13 +42,7 @@ export default function ForecastDays(props) {
             </div>
         );
     } else {
-        let longitude = props.coord.lon;
-        let latitude = props.coord.lat;
-        let apiKey = "ad1c3c6d8734a6f724e8c027e1f76c71";
-        let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=current,minutely,hourly,alerts&appid=${apiKey}&units=metric`;
-        
-        axios.get(apiUrl).then(showForecastDays);
-        
+        load()        
         return null;
     }
 }

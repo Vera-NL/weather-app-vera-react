@@ -3,6 +3,7 @@ import axios from "axios";
 import Loader from "react-loader-spinner";
 import WeatherInfo from "./WeatherInfo";
 import "./Weather.css";
+// https://ferg-weather-react.netlify.app/
 
 export default function Weather({defaultCity}) {
   let [weatherData, setWeatherData] =  useState({ready: false});
@@ -38,6 +39,20 @@ export default function Weather({defaultCity}) {
     setCity(event.target.value);
   }
 
+function showLocation(position) {
+  let lon = position.coords.longitude;
+  let lat = position.coords.latitude;
+  let apiKey = "ad1c3c6d8734a6f724e8c027e1f76c71";
+
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showWeather);
+}
+
+  function updateLocation(event) {
+    event.preventDefault();
+    navigator.geolocation.getCurrentPosition(showLocation);
+  }
+
 if (weatherData.ready) {
   return (
     <div className= "Weather">
@@ -69,6 +84,7 @@ if (weatherData.ready) {
           value="Location"
           autofocus="off"
           id="current-location-button"
+          onClick={updateLocation} 
         >
           <i className="fas fa-map-marker-alt"></i>
         </button>

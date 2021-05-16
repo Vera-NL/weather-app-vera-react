@@ -14,6 +14,14 @@
             setForecastHour(response.data.list);
             setLoaded(true);
         }
+
+        function load() {
+            let city = props.city;
+            let apiKey = "ad1c3c6d8734a6f724e8c027e1f76c71";  
+            let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+
+            axios.get(apiUrl).then(showForecastHours);
+        }
     
         if (loaded) {
             return (
@@ -34,12 +42,7 @@
                 </div>
             );
         } else {
-            let city = props.city;
-            let apiKey = "ad1c3c6d8734a6f724e8c027e1f76c71";  
-            let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
-
-            axios.get(apiUrl).then(showForecastHours);
-            
+            load()            
             return null;
         }
     }

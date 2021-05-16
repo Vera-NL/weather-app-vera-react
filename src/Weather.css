@@ -74,32 +74,31 @@ ul {
   }
   
   .WeatherDescription {
-    margin-top: 70px;
+    margin-top: 90px;
   }
-  
+
   .ForecastDays {
-    font-size: 14px;
-    padding-left: 30px;
+    margin-left: 20px;
   }
   
   .DailyForecast {
-    font-size: 14px;
+    font-size: 15px;
     font-weight: bold;
   }
   
   .ForecastDaysTemperature {
-    margin-left: 10px;
+    margin-left: 20px;
   }
   
   .WeatherIcon {
-    margin-top: 20px;
+    margin-top: 40px;
     color:#0d8eca;
   }
   
   .Humidity,
   .Wind,
   .Description {
-    font-size: 14px;
+    font-size: 16px;
   }
   
   .Description {
@@ -111,7 +110,9 @@ ul {
   }
   
   .ForecastHours {
-    margin-top: 35px;
+    margin-left: 90px;
+    margin-right: 90px;
+    margin-top: 20px;
     text-align: center;
   }
 
