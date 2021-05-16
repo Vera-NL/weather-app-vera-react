@@ -1,10 +1,14 @@
-    import React, {useState} from "react";
+    import React, {useState, useEffect} from "react";
     import axios from "axios";
     import HourlyForecast from "./HourlyForecast";
     
     export default function ForecastHours(props) {
         let [loaded, setLoaded] = useState(false);
         let [forecastHour, setForecastHour] = useState(null);
+
+        useEffect (() => {
+            setLoaded(false);
+        }, [props.city]);  
     
         function showForecastHours (response) {
             setForecastHour(response.data.list);
