@@ -5,9 +5,10 @@ import WeatherInfo from "./WeatherInfo";
 import "./Weather.css";
 // https://ferg-weather-react.netlify.app/
 
-export default function Weather({defaultCity}) {
+export default function Weather(props) {
   let [weatherData, setWeatherData] =  useState({ready: false});
-  let [city, setCity] = useState(defaultCity);
+  let [city, setCity] = useState(props.defaultCity);
+  let [unit, setUnit] = useState("celcius");
 
   function search () {
     const apiKey = "ad1c3c6d8734a6f724e8c027e1f76c71";
@@ -90,7 +91,7 @@ if (weatherData.ready) {
         </button>
       </div>
 
-<WeatherInfo data={weatherData} />
+<WeatherInfo data={weatherData} unit={unit} setUnit={setUnit} />
 
     </form>
     </div>

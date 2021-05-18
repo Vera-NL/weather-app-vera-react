@@ -3,13 +3,23 @@ import WeatherIcon from "./WeatherIcon";
 
 export default function DailyForecast (props) {
 
-    function maxTempDays() {
+    function maxTempDaysCelcius() {
         let temp = Math.round(props.data.temp.max);
         return `${temp}`;
     }
 
-    function minTempDays() {
+    function minTempDaysCelcius() {
         let temp = Math.round(props.data.temp.min);
+        return `${temp}`;
+    }
+
+    function maxTempDaysFahrenheit() {
+        let temp = Math.round((props.data.temp.max * 9) / 5 + 32);
+        return `${temp}`;
+    }
+
+    function minTempDaysFahrenheit() {
+        let temp = Math.round((props.data.temp.min * 9) / 5 + 32);
         return `${temp}`;
     }
 
@@ -20,11 +30,21 @@ export default function DailyForecast (props) {
         return day;
       }
 
+    if (props.unit === "celcius") {
     return (
         <div>
             <div className="DailyForecast">{formatDays()} <WeatherIcon icon={props.data.weather[0].icon} size={25} animate={false} /></div>
             <div className="ForecastDaysTemperature">
-                <span className="MaxTempDays">{maxTempDays()}°</span> <span className="MinTempDays">{minTempDays()}°</span>
+                <span className="MaxTempDays">{maxTempDaysCelcius()}°</span> <span className="MinTempDays">{minTempDaysCelcius()}°</span>
             </div>
         </div>);
+    } else {
+        return (
+        <div>
+            <div className="DailyForecast">{formatDays()} <WeatherIcon icon={props.data.weather[0].icon} size={25} animate={false} /></div>
+            <div className="ForecastDaysTemperature">
+                <span className="MaxTempDays">{maxTempDaysFahrenheit()}°</span> <span className="MinTempDays">{minTempDaysFahrenheit()}°</span>
+            </div>
+        </div>);
+        }
 }

@@ -3,13 +3,23 @@ import WeatherIcon from "./WeatherIcon";
 
 export default function HourlyForecast (props) {
 
-    function maxTempHours() {
-        let temp = Math.round(props.data.temp_max);
+    function maxTempHoursCelcius() {
+        let temp = Math.round(props.data.main.temp_max);
         return `${temp}`;
     }
 
-    function minTempHours() {
-        let temp = Math.round(props.data.temp_min);
+    function minTempHoursCelcius() {
+        let temp = Math.round(props.data.main.temp_min);
+        return `${temp}`;
+    }
+
+    function maxTempHoursFahrenheit() {
+        let temp = Math.round((props.data.main.temp_max * 9) / 5 + 32);
+        return `${temp}`;
+    }
+
+    function minTempHoursFahrenheit() {
+        let temp = Math.round((props.data.main.temp_min * 9) / 5 + 32);
         return `${temp}`;
     }
 
@@ -23,13 +33,23 @@ export default function HourlyForecast (props) {
         return `${hours}:${minutes}`;
       }
 
+      if (props.unit === "celcius") {
     return (
             <div>
                 <div className="HourlyForecast">{formatHours()}</div>
                 <WeatherIcon icon={props.data.weather[0].icon} size={45} animate={false} />
                 <div className="ForecastHoursTemperature">
-                    <span className="MaxTempHours">{maxTempHours()}°</span> <span className="MinTempHours">{minTempHours()}°</span>
+                    <span className="MaxTempHours">{maxTempHoursCelcius()}°</span> <span className="MinTempHours">{minTempHoursCelcius()}°</span>
                 </div>
-            </div>
-        );
-}
+            </div>);
+    } else {
+        return (
+            <div>
+                <div className="HourlyForecast">{formatHours()}</div>
+                <WeatherIcon icon={props.data.weather[0].icon} size={45} animate={false} />
+                <div className="ForecastHoursTemperature">
+                    <span className="MaxTempHours">{maxTempHoursFahrenheit()}°</span> <span className="MinTempHours">{minTempHoursFahrenheit()}°</span>
+                </div>
+            </div>);
+        }
+    }

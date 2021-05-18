@@ -7,6 +7,7 @@ import WeatherIcon from "./WeatherIcon";
 import CurrentTemperature from "./CurrentTemperature";
 
 export default function WeatherInfo (props) {
+
     return (<div className="WeatherInfo">
       <div className="row first-row">
         <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
@@ -24,7 +25,8 @@ export default function WeatherInfo (props) {
         <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
           <div className="clearfix weather-temperature">
             <div className="float-left">
-              <CurrentTemperature celcius={props.data.temperature}/>
+              <CurrentTemperature celcius={props.data.temperature} unit={props.unit}
+              setUnit={props.setUnit} />
             </div>
           </div>
         </div>
@@ -34,7 +36,7 @@ export default function WeatherInfo (props) {
         <div
           className="col-xs-4 col-sm-4 col-md-4 col-lg-4"
           id="forecast-days"
-        ><ForecastDays coord={props.data.coord} />
+        ><ForecastDays coord={props.data.coord} unit={props.unit} setUnit={props.setUnit} />
         </div>
 
         <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
@@ -61,7 +63,7 @@ export default function WeatherInfo (props) {
       </div>
 
       <div className="row third-row">
-      <ForecastHours city={props.data.city} />
+      <ForecastHours city={props.data.city} unit={props.unit} setUnit={props.setUnit} />
       </div>
       </div>
     );
