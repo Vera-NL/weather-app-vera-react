@@ -25,21 +25,23 @@
     
         if (loaded) {
             return (
-                <div className="ForecastHours">
-                    <div className="row">
-                        {forecastHour.map(function (forecastHours, index) {
-                            if (index < 6) {
-                            return (
-                                <div className="col-sm-2" key={index}>
-                                    <HourlyForecast data={forecastHours} />
-                                </div>
-                                );
-                                } else {
-                                    return null;}
-                            })
-                        }    
-                    </div>
-                </div>
+ 
+                    <div className="container-fluid" id="forecast-hours">
+                        <div className="row">
+                            {forecastHour.map(function (forecastHours, index) {
+                                if (index < 6) {
+                                return (
+                                    <div className="col-sm-2" key={index}>
+                                        <HourlyForecast data={forecastHours} />
+                                    </div>
+                                    );
+                                    } else {
+                                        return null;}
+                                })
+                            }    
+                        </div>
+                    </div>    
+
             );
         } else {
             load()            

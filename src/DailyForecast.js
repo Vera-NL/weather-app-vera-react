@@ -33,7 +33,7 @@ export default function DailyForecast (props) {
     if (props.unit === "celcius") {
     return (
         <div>
-            <div className="DailyForecast">{formatDays()} <WeatherIcon icon={props.data.weather[0].icon} size={25} animate={false} /></div>
+            <div className="DailyForecast">{formatDays()} <WeatherIcon icon={props.data.weather[0].icon} size={25} animate={true} /></div>
             <div className="ForecastDaysTemperature">
                 <span className="MaxTempDays">{maxTempDaysCelcius()}°</span> <span className="MinTempDays">{minTempDaysCelcius()}°</span>
             </div>
@@ -41,7 +41,7 @@ export default function DailyForecast (props) {
     } else {
         return (
         <div>
-            <div className="DailyForecast">{formatDays()} <WeatherIcon icon={props.data.weather[0].icon} size={25} animate={false} /></div>
+            <div className="DailyForecast">{formatDays()} <WeatherIcon icon={props.data.weather[0].icon} size={25} animate={true} /></div>
             <div className="ForecastDaysTemperature">
                 <span className="MaxTempDays">{maxTempDaysFahrenheit()}°</span> <span className="MinTempDays">{minTempDaysFahrenheit()}°</span>
             </div>

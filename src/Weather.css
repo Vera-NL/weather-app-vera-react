@@ -1,9 +1,15 @@
+:root {
+  --branding-color: #f1870e;
+  --primary-color: #f8f4ec;
+
+}
+
 ul {
     list-style: none;
   }
   
   h1 {
-    color: #0d8eca;
+    color: var(--branding-color);
     text-transform: capitalize;
   }
   
@@ -13,19 +19,19 @@ ul {
   }
   
   #search-city {
-    background-color: #fff1eb;
-    border-color: #0d8eca;
+    background-color: var(--primary-color);
+    border-color: var(--branding-color);
   }
   
   #submit-city,
   #current-location-button {
-    border-color: #0d8eca;
-    color: #0d8eca;
+    border-color: var(--branding-color);
+    color: var(--branding-color);
   }
   
   #submit-city:hover,
   #current-location-button:hover {
-    background-color: #fff1eb;
+    background-color: var(--primary-color);
     transition: all 200ms ease-in-out;
   }
 
@@ -45,7 +51,7 @@ ul {
   }
 
   .Temperature {
-    color: #0d8eca;
+    color: var(--branding-color);
     font-size: 80px;
     font-weight: 600;
     margin-right: 10px;
@@ -57,20 +63,20 @@ ul {
   
   #celcius-link,
   #fahrenheit-link {
-    border-color: #0d8eca;
-    color: #0d8eca;
+    border-color: var(--branding-color);
+    color: var(--branding-color);
     top: -36px;
   }
   
   #celcius-link:hover,
   #fahrenheit-link:hover {
-    background-color: #fff1eb;
+    background-color: var(--primary-color);
     transition: all 200ms ease-in-out;
   }
 
   #celcius-link.active,
   #fahrenheit-link.active {
-    background-color: #fff1eb;
+    background-color: var(--primary-color);
   }
   
   .WeatherDescription {
@@ -84,6 +90,7 @@ ul {
   .DailyForecast {
     font-size: 15px;
     font-weight: bold;
+    margin-top: 10px;
   }
   
   .ForecastDaysTemperature {
@@ -92,7 +99,7 @@ ul {
   
   .WeatherIcon {
     margin-top: 40px;
-    color:#0d8eca;
+    color: var(--branding-color);
   }
   
   .Humidity,
@@ -108,13 +115,6 @@ ul {
   .Description::first-letter {
     text-transform: capitalize;
   }
-  
-  .ForecastHours {
-    margin-left: 90px;
-    margin-right: 90px;
-    margin-top: 20px;
-    text-align: center;
-  }
 
 .HourlyForecast {
   font-size: 16px;
@@ -125,19 +125,25 @@ ul {
   padding-top: 7px;
 }
 
+#forecast-hours {
+  margin-left: 90px;
+  margin-right: 90px;
+  margin-top: 20px;
+  text-align: center;
+}
+
 .ForecastHoursTemperature {
   font-size: 16px;
   font-weight: normal;
   height: auto;
   line-height: 15px;
   margin-top: 5px;
-  padding-left: 15px;
   white-space: nowrap;
 }
 
 .MaxTempHours,
 .MaxTempDays,
 .Degrees {
-  color: #0d8eca;
+  color: var(--branding-color);
   font-weight: bold;
 }

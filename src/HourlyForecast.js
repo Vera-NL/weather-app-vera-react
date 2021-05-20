@@ -37,7 +37,7 @@ export default function HourlyForecast (props) {
     return (
             <div>
                 <div className="HourlyForecast">{formatHours()}</div>
-                <WeatherIcon icon={props.data.weather[0].icon} size={45} animate={false} />
+                <WeatherIcon icon={props.data.weather[0].icon} size={45} animate={true} />
                 <div className="ForecastHoursTemperature">
                     <span className="MaxTempHours">{maxTempHoursCelcius()}°</span> <span className="MinTempHours">{minTempHoursCelcius()}°</span>
                 </div>
@@ -46,7 +46,7 @@ export default function HourlyForecast (props) {
         return (
             <div>
                 <div className="HourlyForecast">{formatHours()}</div>
-                <WeatherIcon icon={props.data.weather[0].icon} size={45} animate={false} />
+                <WeatherIcon icon={props.data.weather[0].icon} size={45} animate={true} />
                 <div className="ForecastHoursTemperature">
                     <span className="MaxTempHours">{maxTempHoursFahrenheit()}°</span> <span className="MinTempHours">{minTempHoursFahrenheit()}°</span>
                 </div>

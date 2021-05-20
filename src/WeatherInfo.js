@@ -10,7 +10,7 @@ export default function WeatherInfo (props) {
 
     return (<div className="WeatherInfo">
       <div className="row first-row">
-        <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <div className="col-md-6">
           <h1>{props.data.city}</h1>
           <ul id="date-update">
             <li>
@@ -22,7 +22,7 @@ export default function WeatherInfo (props) {
           </ul>
         </div>
 
-        <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <div className="col-md-6">
           <div className="clearfix weather-temperature">
             <div className="float-left">
               <CurrentTemperature celcius={props.data.temperature} unit={props.unit}
@@ -34,7 +34,7 @@ export default function WeatherInfo (props) {
 
       <div className="row second-row">
         <div
-          className="col-xs-4 col-sm-4 col-md-4 col-lg-4"
+          className="col-md-4"
           id="forecast-days"
         ><ForecastDays coord={props.data.coord} unit={props.unit} setUnit={props.setUnit} />
         </div>
@@ -43,7 +43,7 @@ export default function WeatherInfo (props) {
           <div className="WeatherIcon"><WeatherIcon icon={props.data.icon} size={170} animate={true} /></div>
         </div>
 
-        <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+        <div className="col-md-3">
           <ul className="WeatherDescription">
             <li className="Humidity">
               <strong>Humidity: </strong>
