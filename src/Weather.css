@@ -1,7 +1,7 @@
 :root {
   --branding-color: #f1870e;
   --primary-color: #f8f4ec;
-
+  --secondary-color: #eec451;
 }
 
 ul {
@@ -11,6 +11,10 @@ ul {
   h1 {
     color: var(--branding-color);
     text-transform: capitalize;
+  }
+
+  i {
+    color: var(--branding-color);
   }
   
   .input-group {
@@ -26,7 +30,6 @@ ul {
   #submit-city,
   #current-location-button {
     border-color: var(--branding-color);
-    color: var(--branding-color);
   }
   
   #submit-city:hover,
@@ -148,7 +151,7 @@ ul {
   font-weight: bold;
 }
 
-@media (max-width:660px) {
+@media (max-width:760px) {
   .ForecastDays {
     text-align: center;
   }
