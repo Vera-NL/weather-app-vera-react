@@ -147,3 +147,18 @@ ul {
   color: var(--branding-color);
   font-weight: bold;
 }
+
+@media (max-width:660px) {
+  .ForecastDays {
+    text-align: center;
+  }
+  .HourlyForecast {
+    margin-top: 20px;
+  }
+  .WeatherIcon {
+    text-align: center;
+  }
+  .WeatherDescription {
+    margin-left: 70px;
+  }
+}
