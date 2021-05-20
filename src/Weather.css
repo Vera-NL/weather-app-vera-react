@@ -39,6 +39,7 @@ ul {
   }
 
   #date-update {
+    font-weight: 600;
     margin-left: -38px;
   }
   
@@ -83,7 +84,7 @@ ul {
   }
   
   .WeatherDescription {
-    margin-top: 90px;
+    margin-top: 120px;
   }
 
   .ForecastDays {
@@ -101,7 +102,7 @@ ul {
   }
   
   .WeatherIcon {
-    margin-top: 40px;
+    margin-top: 70px;
     color: var(--branding-color);
   }
   

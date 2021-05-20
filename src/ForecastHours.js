@@ -25,14 +25,13 @@
     
         if (loaded) {
             return (
- 
                     <div className="container-fluid" id="forecast-hours">
                         <div className="row">
                             {forecastHour.map(function (forecastHours, index) {
                                 if (index < 6) {
                                 return (
                                     <div className="col-sm-2" key={index}>
-                                        <HourlyForecast data={forecastHours} />
+                                        <HourlyForecast data={forecastHours} unit={props.unit} />
                                     </div>
                                     );
                                     } else {
