@@ -3,7 +3,6 @@ import axios from "axios";
 import Loader from "react-loader-spinner";
 import WeatherInfo from "./WeatherInfo";
 import "./Weather.css";
-// https://ferg-weather-react.netlify.app/
 
 export default function Weather(props) {
   let [weatherData, setWeatherData] =  useState({ready: false});
